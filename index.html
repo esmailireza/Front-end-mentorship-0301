@@ -19,59 +19,15 @@
   <body>
     <main>
       <h1>Task Manager</h1>
-
       <section id="task-manager">
-        <div class="form-group">
-          <input type="text" placeholder="Title" />
-          <button>Add</button>
-        </div>
+        <form action="#" class="form-group">
+          <input type="text" placeholder="Title" id="task-value" />
+          <input type="submit" id="btn-add-task" value="Add" />
+        </form>
 
-        <div class="task-list">
-          <ul>
-            <li>
-              <div class="task-list-item">
-                <div class="list-item-title">
-                  <span>Task 1</span>
-                </div>
-                <div class="list-item-buttons">
-                  <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                  <button class="btn-delete">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div class="task-list-item">
-                <div class="list-item-title">
-                  <span>Task 2</span>
-                </div>
-                <div class="list-item-buttons">
-                  <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                  <button class="btn-delete">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
-            </li>
-
-            <li>
-              <div class="task-list-item">
-                <div class="list-item-title">
-                  <span>Task 3</span>
-                </div>
-                <div class="list-item-buttons">
-                  <button class="btn-edit"><i class="fas fa-edit"></i></button>
-                  <button class="btn-delete">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <div class="task-list"></div>
       </section>
     </main>
+    <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>
