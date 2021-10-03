@@ -6,7 +6,7 @@ const taskList = document.querySelector(".task-list");
 document.addEventListener("submit", notReloadPage);
 taskList.addEventListener("click", removeTask);
 taskList.addEventListener("click", editTask);
-
+taskList.addEventListener("click", saveTask);
 document.addEventListener("DOMContentLoaded", localStorageOnLoad);
 
 /* functions */
@@ -36,10 +36,12 @@ function notReloadPage(e) {
 function removeTask(e) {
   if (e.target.classList.contains("btn-delete")) {
     e.target.parentElement.parentElement.remove();
-    removeTaskLocalStorage(
-      e.target.parentElement.parentElement.firstElementChild.textContent
-    );
   }
+
+  removeTaskLocalStorage(
+    e.target.parentElement.parentElement.firstElementChild.firstElementChild
+      .textContent
+  );
 }
 
 /* function for edit task */
@@ -48,7 +50,7 @@ function editTask(e) {
     /* access to span contions task content added */
     const textTask =
       e.target.parentElement.previousElementSibling.firstElementChild;
-    console.log(textTask);
+    console.log(textTask.textContent);
     if (e.target.textContent === "edit") {
       /* create input Element */
       const input = document.createElement("input");
@@ -118,16 +120,23 @@ function localStorageOnLoad() {
 
 function removeTaskLocalStorage(noteContent) {
   const tasksFromLocalS = getNotesFromLocalStorage();
-  tasksFromLocalS.forEach(function (noteB, index) {
-    if (noteB == noteContent) {
-      console.log("yes");
+  tasksFromLocalS.forEach((noteB, index) => {
+    if (noteContent === noteB) {
       tasksFromLocalS.splice(index, 1);
-    } else {
-      console.log("no");
     }
   });
 
   localStorage.setItem("tasks", JSON.stringify(tasksFromLocalS));
-  console.log(noteContent);
-  console.log(tasksFromLocalS);
+}
+
+// saveTask function
+function saveTask(e) {
+  const textTask =
+    e.target.parentElement.previousElementSibling.firstElementChild;
+  if (
+    e.target.classList.contains("btn-edit") &&
+    e.target.textContent === "edit" // same is save.
+  ) {
+    addTaskToLocalStorage(textTask.textContent);
+  }
 }
