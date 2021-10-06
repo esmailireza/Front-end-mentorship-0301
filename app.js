@@ -30,6 +30,7 @@ function notReloadPage(e) {
 
   /* adding task to the local storage */
   addTaskToLocalStorage(taskValue);
+  formGroup.reset();
 }
 
 /* function for remove task */
@@ -50,7 +51,6 @@ function editTask(e) {
     /* access to span contions task content added */
     const textTask =
       e.target.parentElement.previousElementSibling.firstElementChild;
-    console.log(textTask.textContent);
     if (e.target.textContent === "edit") {
       /* create input Element */
       const input = document.createElement("input");

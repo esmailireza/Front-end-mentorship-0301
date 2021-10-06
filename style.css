@@ -138,6 +138,15 @@ i {
     margin-top: 2rem;
     width: 95%;
   }
+  .input-edit {
+    width: 75%;
+  }
+  .list-item-buttons {
+    display: flex;
+  }
+  main {
+    margin-top: -5rem;
+  }
 }
 
 @media only screen and (width: 768px) {
